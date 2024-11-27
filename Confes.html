@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Playfair+Display:ital,wght@1,700&display=swap');
+
+        body {
+            background-color: #FFC0CB;
+            color: #8A3EC2;
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            padding: 30px;
+            position: relative;
+        }
+
+        h3, h2 {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+        }
+
+        p {
+            text-align: center;
+            margin: 20px;
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            line-height: 1,2;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            font-size: 15px;
+            text-decoration: none;
+            color: green;
+        }
+
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            transform: rotate(45deg);
+            animation: floatUp 1s infinite;
+            z-index: -1;
+        }
+
+        .heart::before, .heart::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: inherit;
+            border-radius: 50%;
+        }
+
+        .heart::before {
+            top: -10px;
+            left: 0;
+        }
+
+        .heart::after {
+            left: 10px;
+            top: 0;
+        }
+
+        .heart.pink { background-color: #FF69B4;}
+        .heart.purple { background-color: #800080;}
+        .heart.red { background-color: #FF0000;}
+        .heart.blue { background-color: #4169E1;}
+        .heart.light-blue { background-color: #E0FFFF;}
+        .heart.yellow { background-color: #FFFF00;}
+        .heart.white { background-color: #FFFFFF;}
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10%) scale(0.5);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<title>CONFES</title>
+<body>
+    <h3>Untukmu, Elsa</h3>
+    <h2>Elsa Putri Pebrianti</h2>
+    <br><br>
+    <p>Setiap kali ku berdiri di bawah langit malam,</p>
+    <p>Kulihat kilauan-kilauan bintang yang memancar.</p>
+    <p>Bagaikan kilauan harapan yang terpancar darimu,</p>
+    <p>Telah membuatku tenggelam dalam lautan mimpi.</p>
+    <br>
+    <p>Dalam setiap langkahku, angin berhembus,</p>
+    <p>Membawa namamu yang selalu kurindu.</p>
+    <p>Bagaikan matahari yang menerangi dunia,</p>
+    <p>Dirimu kini menerangi hatiku yang sepi.</p>
+    <br>
+    <h3>Aku akan berada di sini, dan akan selalu berada di sini menantikan jawaban darimu.</h3>
+    <h2>I LOVE YOU</h2>
+    <br><br>
+    <h3>Dariku, atas nama Akbar</h3>
+    <h2>Muhammad Akbar Agustian</h2>
+    <br><br>
+    <a href="https://wa.me/6285797514227">Hubungi saya di WhatsApp</a>
+
+    <!-- Hati-hati animasi -->
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            const colors = ['purple', 'red', 'blue', 'light-blue', 'yellow', 'white', 'pink'];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            heart.classList.add(randomColor);
+
+            const bodyWidth = window.innerWidth - 60;
+            const maxLeft = bodyWidth * 0.9;
+            const minLeft = bodyWidth * 0.05;
+            const leftPosition = Math.random() * (maxLeft - minLeft) + minLeft;
+
+            heart.style.left = leftPosition + "px";
+            heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+            document.body.appendChild(heart);
+
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        setInterval(createHeart, 21);
+    </script>
+</body>
+</html>
